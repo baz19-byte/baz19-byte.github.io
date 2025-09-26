@@ -11,6 +11,8 @@ layout:
 tabs:
   # format: <filename_without_extension>: <value>
   home: Home
+  blog-posts: Blog
+  portfolio: Portfolio
   categories: Categories
   tags: Tags
   archives: Archives
