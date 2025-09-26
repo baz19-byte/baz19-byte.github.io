@@ -26,5 +26,3 @@ end
 
 gem "wdm", "~> 0.2.0", platforms: [:windows]
 
-# Pin Ruby version to avoid Ruby 3.4 issues on Cloudflare
-ruby "3.4.5"
