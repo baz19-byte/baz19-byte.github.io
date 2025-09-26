@@ -1,13 +1,13 @@
 ---
 title: Ultimate Offsec Cheat Sheet for Security Pros
-date: 1997-02-21 00:00:00 +8000
+date: 2024-02-21 00:00:00 +8000
 categories:
-    - Offensive Security
-    - Cheatsheet
+  - Offensive Security
+  - Cheatsheet
 tags: []
 image:
-    path: /assets//img/posts/offsec-cover.png
-    alt: Offensive Security Cheat Sheet
+  path: /assets//img/posts/offsec-cover.png
+  alt: Offensive Security Cheat Sheet
 slug: ultimate-offsec-cheat-sheet-security-pros
 ---
 
