@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+# File: _plugins/portfolio_page_generator.rb
+
+module PortfolioPlugin
+  class PortfolioPageGenerator < Jekyll::Generator
+    safe true
+    priority :normal
+
+    def generate(site)
+      # Find the portfolio.md file in _portfolio collection
+      portfolio_doc = site.collections['portfolio'].docs.find { |doc| doc.basename_without_ext == 'portfolio' }
+      
+      if portfolio_doc
+        # Let Jekyll process the document naturally - don't manually render
+        # Jekyll will handle markdown processing automatically
+        
+        # Create the portfolio index page
+        portfolio_page = PortfolioPage.new(site, portfolio_doc)
+        site.pages << portfolio_page
+      end
+    end
+  end
+
+  class PortfolioPage < Jekyll::Page
+    def initialize(site, portfolio_doc)
+      @site = site
+      @base = site.source
+      @dir = 'portfolio'
+      
+      @basename = 'index'
+      @ext = '.html'
+      @name = 'index.html'
+      
+      # Copy all data from the portfolio document
+      @data = portfolio_doc.data.dup
+      @data['layout'] = 'portfolio'
+      @data['permalink'] = '/portfolio/'
+      
+      # Use the raw content - Jekyll will process it during rendering
+      @content = portfolio_doc.content
+    end
+    
+    # Override the render method to ensure proper markdown processing
+    def render(layouts, site_payload)
+      # Process the content through markdown converter first
+      if @content && @content.length > 0
+        # Get the markdown converter
+        converter = site.find_converter_instance(Jekyll::Converters::Markdown)
+        @content = converter.convert(@content)
+      end
+      
+      # Then call the parent render method
+      super(layouts, site_payload)
+    end
+  end
+end
