@@ -1,139 +1,134 @@
 @mixin styles {
-  /* Framework color */
-  --main-bg: white;
+  /* Framework color - More contrast */
+  --main-bg: #e4e4e4;
   --mask-bg: #c1c3c5;
-  --main-border-color: #f3f3f3;
+  --main-border-color: #e1e4e8;  // Slightly more contrast
 
-  /* Common color */
-  --text-color: #34343c;
-  --text-muted-color: #757575;
+  /* Common color - Enhanced readability */
+  --text-color: #1a1a1a;  // Darker text for better contrast
+  --text-muted-color: #586069;  // More readable muted text
   --text-muted-highlight-color: inherit;
-  --heading-color: #2a2a2a;
-  --label-color: #585858;
-  --blockquote-border-color: #eeeeee;
-  --blockquote-text-color: #757575;
-  --link-color: #0056b2;
-  --link-underline-color: #dee2e6;
-  --button-bg: #ffffff;
-  --btn-border-color: #e9ecef;
-  --btn-backtotop-color: #686868;
-  --btn-backtotop-border-color: #f1f1f1;
+  --heading-color: #0d47a1;  // Professional blue headings
+  --label-color: #d73a49;  // Red labels for security theme
+  --blockquote-border-color: #ff6b35;  // Orange border for impact
+  --blockquote-text-color: #586069;
+  --link-color: #0366d6;  // GitHub blue for links
+  --link-underline-color: #dfe2e5;
+  --button-bg: #0366d6;  // Blue buttons
+  --btn-border-color: #0366d6;
+  --btn-backtotop-color: #586069;
+  --btn-backtotop-border-color: #e1e4e8;
   --checkbox-color: #c5c5c5;
-  --checkbox-checked-color: #07a8f7;
+  --checkbox-checked-color: #28a745;  // Green checkmarks
   --img-bg: radial-gradient(
     circle,
     rgb(255, 255, 255) 0%,
-    rgb(239, 239, 239) 100%
+    rgb(248, 249, 250) 100%
   );
   --shimmer-bg: linear-gradient(
     90deg,
     rgba(250, 250, 250, 0) 0%,
-    rgba(232, 230, 230, 1) 50%,
+    rgba(0, 102, 255, 0.1) 50%,  // Blue shimmer
     rgba(250, 250, 250, 0) 100%
   );
 
-  /* Sidebar */
-  --site-title-color: rgb(113, 113, 113);
-  --site-subtitle-color: #717171;
-  --sidebar-bg: #f6f8fa;
-  --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #545454;
-  --sidebar-active-color: #1d1d1d;
-  --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
+  /* Sidebar - Tech professional look */
+  --site-title-color: #0d47a1;  // Strong blue for site title
+  --site-subtitle-color: #586069;
+  --sidebar-bg: #e4e4e4;
+  --sidebar-border-color: #0366d6;  // Blue border
+  --sidebar-muted-color: #586069;
+  --sidebar-active-color: #0366d6;  // Blue active state
+  --sidebar-hover-bg: rgba(3, 102, 214, 0.1);  // Blue hover
   --sidebar-btn-bg: white;
-  --sidebar-btn-color: #8e8e8e;
-  --avatar-border-color: white;
+  --sidebar-btn-color: #586069;
+  --avatar-border-color: #0366d6;  // Blue avatar border
 
-  /* Topbar */
-  --topbar-bg: rgb(255, 255, 255, 0.7);
-  --topbar-text-color: rgb(78, 78, 78);
-  --search-border-color: rgb(240, 240, 240);
-  --search-icon-color: #c2c6cc;
-  --input-focus-border-color: #b8b8b8;
+  /* Topbar - Professional header */
+  --topbar-bg: #e4e4e4;  // Slight transparency
+  --topbar-text-color: #24292e;
+  --search-border-color: #d1d5da;
+  --search-icon-color: #959da5;
+  --input-focus-border-color: #0366d6;  // Blue focus
 
-  /* Home page */
-  --post-list-text-color: dimgray;
-  --btn-patinator-text-color: #555555;
-  --btn-paginator-hover-color: var(--sidebar-bg);
+  /* Home page - Enhanced visibility */
+  --post-list-text-color: #586069;
+  --btn-patinator-text-color: #24292e;
+  --btn-paginator-hover-color: rgba(3, 102, 214, 0.1);
 
-  /* Posts */
-  --toc-highlight: #0550ae;
-  --toc-popup-border-color: lightgray;
-  --btn-share-color: gray;
-  --btn-share-hover-color: #0d6efd;
+  /* Posts - Security-themed accents */
+  --toc-highlight: #0366d6;
+  --toc-popup-border-color: #d1d5da;
+  --btn-share-color: #586069;
+  --btn-share-hover-color: #0366d6;
   --card-bg: white;
-  --card-hovor-bg: #e2e2e2;
-  --card-shadow: rgb(104, 104, 104, 0.05) 0 2px 6px 0,
-    rgba(211, 209, 209, 0.15) 0 0 0 1px;
-  --footnote-target-bg: lightcyan;
-  --tb-odd-bg: #fbfcfd;
-  --tb-border-color: #eaeaea;
-  --dash-color: silver;
-  --kbd-wrap-color: #bdbdbd;
+  --card-hovor-bg: #f6f8fa;  // Subtle hover
+  --card-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, 
+    rgba(255, 109, 53, 0.08) 0px 8px 24px 0px;  // Orange-tinted shadow
+  --footnote-target-bg: #fff3cd;  // Yellow highlight
+  --tb-odd-bg: #f6f8fa;
+  --tb-border-color: #d1d5da;
+  --dash-color: #d1d5da;
+  --kbd-wrap-color: #d1d5da;
   --kbd-text-color: var(--text-color);
-  --kbd-bg-color: white;
-  --prompt-text-color: rgb(46, 46, 46, 0.77);
-  --prompt-tip-bg: rgb(123, 247, 144, 0.2);
-  --prompt-tip-icon-color: #03b303;
-  --prompt-info-bg: #e1f5fe;
-  --prompt-info-icon-color: #0070cb;
-  --prompt-warning-bg: rgb(255, 243, 205);
-  --prompt-warning-icon-color: #ef9c03;
-  --prompt-danger-bg: rgb(248, 215, 218, 0.56);
-  --prompt-danger-icon-color: #df3c30;
+  --kbd-bg-color: #f6f8fa;
+  --prompt-text-color: rgb(36, 41, 46, 0.8);
+  --prompt-tip-bg: rgba(40, 167, 69, 0.1);  // Green tip
+  --prompt-tip-icon-color: #28a745;
+  --prompt-info-bg: rgba(3, 102, 214, 0.1);  // Blue info
+  --prompt-info-icon-color: #0366d6;
+  --prompt-warning-bg: rgba(255, 193, 7, 0.1);  // Yellow warning
+  --prompt-warning-icon-color: #ffc107;
+  --prompt-danger-bg: rgba(220, 53, 69, 0.1);  // Red danger
+  --prompt-danger-icon-color: #dc3545;
 
-  /* Tags */
-  --tag-border: #dee2e6;
-  --tag-shadow: var(--btn-border-color);
-  --tag-hover: rgb(222, 226, 230);
-  --search-tag-bg: #f8f9fa;
+  /* Tags - More colorful */
+  --tag-border: #0366d6;  // Blue tag borders
+  --tag-shadow: rgba(3, 102, 214, 0.2);
+  --tag-hover: rgba(3, 102, 214, 0.1);
+  --search-tag-bg: #f1f8ff;  // Light blue background
 
-  /* Categories */
-  --categories-border: rgba(0, 0, 0, 0.125);
-  --categories-hover-bg: var(--btn-border-color);
-  --categories-icon-hover-color: darkslategray;
+  /* Categories - Enhanced */
+  --categories-border: rgba(3, 102, 214, 0.2);
+  --categories-hover-bg: rgba(3, 102, 214, 0.1);
+  --categories-icon-hover-color: #0366d6;
 
-  /* Archive */
-  --timeline-color: rgba(0, 0, 0, 0.075);
-  --timeline-node-bg: #c2c6cc;
+  /* Archive - Professional timeline */
+  --timeline-color: rgba(3, 102, 214, 0.2);
+  --timeline-node-bg: #0366d6;
   --timeline-year-dot-color: #ffffff;
 
-  /* --- Custom code light mode colors --- */
-  --language-border-color: #ececec;
+  /* Enhanced code colors */
+  --language-border-color: #d1d5da;
   --highlight-bg-color: #f6f8fa;
-  --highlighter-rouge-color: #3f596f;
-  --highlight-lineno-color: #9e9e9e;
-  --inline-code-bg: rgba(25, 25, 28, 0.05);
-  --code-color: #3a3a3a;
-  --code-header-text-color: #a3a3a3;
-  --code-header-muted-color: #e5e5e5;
-  --code-header-icon-color: #c9c8c8;
-  --clipboard-checked-color: #43c743;
+  --highlighter-rouge-color: #032f62;
+  --highlight-lineno-color: #959da5;
+  --inline-code-bg: rgba(175, 184, 193, 0.2);
+  --code-color: #24292e;
+  --code-header-text-color: #586069;
+  --code-header-muted-color: #d1d5da;
+  --code-header-icon-color: #959da5;
+  --clipboard-checked-color: #28a745;
 
   [class^='prompt-'] {
-    --link-underline-color: rgb(219, 216, 216);
+    --link-underline-color: rgb(209, 213, 218);
+    border-radius: 6px;  // Rounded corners for prompts
+    border-left: 4px solid;  // Stronger left border
   }
 
   .dark {
     display: none;
   }
 
-  /* --- Syntax highlight theme from `rougify style github` --- */
-
-  .highlight table td {
-    padding: 5px;
-  }
-
-  .highlight table pre {
-    margin: 0;
-  }
-
+  /* Enhanced syntax highlighting - More vibrant */
   .highlight,
   .highlight .w {
     color: #24292f;
     background-color: #f6f8fa;
+    border-radius: 6px;  // Rounded code blocks
   }
 
+  /* Keywords - Bright red for impact */
   .highlight .k,
   .highlight .kd,
   .highlight .kn,
@@ -141,111 +136,11 @@
   .highlight .kr,
   .highlight .kt,
   .highlight .kv {
-    color: #cf222e;
+    color: #d73a49;  // Bright red keywords
+    font-weight: 600;  // Bold keywords
   }
 
-  .highlight .gr {
-    color: #f6f8fa;
-  }
-
-  .highlight .gd {
-    color: #82071e;
-    background-color: #ffebe9;
-  }
-
-  .highlight .nb {
-    color: #953800;
-  }
-
-  .highlight .nc {
-    color: #953800;
-  }
-
-  .highlight .no {
-    color: #953800;
-  }
-
-  .highlight .nn {
-    color: #953800;
-  }
-
-  .highlight .sr {
-    color: #116329;
-  }
-
-  .highlight .na {
-    color: #116329;
-  }
-
-  .highlight .nt {
-    color: #116329;
-  }
-
-  .highlight .gi {
-    color: #116329;
-    background-color: #dafbe1;
-  }
-
-  .highlight .kc {
-    color: #0550ae;
-  }
-
-  .highlight .l,
-  .highlight .ld,
-  .highlight .m,
-  .highlight .mb,
-  .highlight .mf,
-  .highlight .mh,
-  .highlight .mi,
-  .highlight .il,
-  .highlight .mo,
-  .highlight .mx {
-    color: #0550ae;
-  }
-
-  .highlight .sb {
-    color: #0550ae;
-  }
-
-  .highlight .bp {
-    color: #0550ae;
-  }
-
-  .highlight .ne {
-    color: #0550ae;
-  }
-
-  .highlight .nl {
-    color: #0550ae;
-  }
-
-  .highlight .py {
-    color: #0550ae;
-  }
-
-  .highlight .nv,
-  .highlight .vc,
-  .highlight .vg,
-  .highlight .vi,
-  .highlight .vm {
-    color: #0550ae;
-  }
-
-  .highlight .o,
-  .highlight .ow {
-    color: #0550ae;
-  }
-
-  .highlight .gh {
-    color: #0550ae;
-    font-weight: bold;
-  }
-
-  .highlight .gu {
-    color: #0550ae;
-    font-weight: bold;
-  }
-
+  /* Strings - Security green */
   .highlight .s,
   .highlight .sa,
   .highlight .sc,
@@ -257,23 +152,63 @@
   .highlight .sx,
   .highlight .s1,
   .highlight .ss {
-    color: #0a3069;
+    color: #22863a;  // Security green
   }
 
-  .highlight .nd {
-    color: #8250df;
+  /* Numbers and literals - Professional blue */
+  .highlight .l,
+  .highlight .ld,
+  .highlight .m,
+  .highlight .mb,
+  .highlight .mf,
+  .highlight .mh,
+  .highlight .mi,
+  .highlight .il,
+  .highlight .mo,
+  .highlight .mx {
+    color: #005cc5;  // Professional blue
   }
 
+  /* Functions - Purple for distinction */
+  .highlight .nd,
   .highlight .nf,
   .highlight .fm {
-    color: #8250df;
+    color: #6f42c1;  // Purple functions
+    font-weight: 500;
   }
 
-  .highlight .err {
-    color: #f6f8fa;
-    background-color: #82071e;
+  /* Classes and names - Orange for cybersecurity feel */
+  .highlight .nb,
+  .highlight .nc,
+  .highlight .no,
+  .highlight .nn {
+    color: #e36209;  // Orange for classes
   }
 
+  /* Attributes and tags - Green */
+  .highlight .sr,
+  .highlight .na,
+  .highlight .nt {
+    color: #22863a;
+  }
+
+  /* Variables - Blue */
+  .highlight .nv,
+  .highlight .vc,
+  .highlight .vg,
+  .highlight .vi,
+  .highlight .vm {
+    color: #005cc5;
+  }
+
+  /* Operators - Red for visibility */
+  .highlight .o,
+  .highlight .ow {
+    color: #d73a49;
+    font-weight: 500;
+  }
+
+  /* Comments - Muted but readable */
   .highlight .c,
   .highlight .ch,
   .highlight .cd,
@@ -282,32 +217,42 @@
   .highlight .cpf,
   .highlight .c1,
   .highlight .cs {
-    color: #68717a;
-  }
-
-  .highlight .gl {
-    color: #68717a;
-  }
-
-  .highlight .gt {
-    color: #68717a;
-  }
-
-  .highlight .ni {
-    color: #24292f;
-  }
-
-  .highlight .si {
-    color: #24292f;
-  }
-
-  .highlight .ge {
-    color: #24292f;
+    color: #6a737d;
     font-style: italic;
   }
 
-  .highlight .gs {
-    color: #24292f;
-    font-weight: bold;
+  /* Error highlighting - Strong red background */
+  .highlight .err {
+    color: #ffffff;
+    background-color: #d73a49;
+    border-radius: 3px;
+    padding: 1px 2px;
+  }
+
+  /* Additional enhancements for cybersecurity theme */
+  
+  /* Add glow effects to important elements */
+  .btn:hover {
+    box-shadow: 0 0 20px rgba(3, 102, 214, 0.3);
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+
+  /* Enhance card interactions */
+  .card-wrapper:hover {
+    transform: translateY(-2px);
+    box-shadow: rgba(27, 31, 35, 0.1) 0px 8px 24px 0px, 
+      rgba(255, 109, 53, 0.1) 0px 2px 4px 0px;
+    transition: all 0.3s ease;
+  }
+
+  /* Technology badge styling */
+  .badge {
+    background: linear-gradient(135deg, #0366d6, #005cc5) !important;
+    color: white !important;
+    border-radius: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+    box-shadow: 0 2px 8px rgba(3, 102, 214, 0.2);
   }
 }
