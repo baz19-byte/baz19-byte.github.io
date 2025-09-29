@@ -203,8 +203,7 @@ defaults:
       type: projects
     values:
       layout: post
-      categories: [Projects]
-      tags: [cybersecurity, project]
+
 
 sass:
   style: compressed
