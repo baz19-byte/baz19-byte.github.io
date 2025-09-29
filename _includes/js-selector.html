@@ -6,7 +6,7 @@
 
 <!-- layout specified -->
 
-{% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' or page.layout == 'portfolio' %}
+{% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' or page.layout == 'portfolio' or page.layout == 'projects' %}
   {% assign urls = urls | append: ',' | append: site.data.origin[type]['lazy-polyfill'].js %}
 
   {% unless page.layout == 'home' %}
@@ -26,6 +26,7 @@
   or page.layout == 'category'
   or page.layout == 'tag'
   or page.layout == 'portfolio'
+ or page.layout == 'projects'
 %}
   {% assign locale = include.lang | split: '-' | first %}
 
@@ -55,7 +56,7 @@
 {% case page.layout %}
   {% when 'home', 'categories', 'post', 'page' %}
     {% assign js = page.layout %}
-  {% when 'portfolio' %}
+  {% when 'portfolio', 'projects' %}
     {% assign js = 'post' %}
   {% when 'archives', 'category', 'tag' %}
     {% assign js = 'misc' %}

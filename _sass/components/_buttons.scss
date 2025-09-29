@@ -49,3 +49,16 @@
     visibility: visible;
   }
 }
+
+// Enhanced button styles
+.btn {
+  background: linear-gradient(45deg, var(--btn-bg), lighten(var(--btn-bg), 10%));
+  border: none;
+  box-shadow: 0 4px 15px rgba(var(--btn-bg), 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--btn-bg), 0.4);
+  }
+}

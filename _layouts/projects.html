@@ -1,0 +1,118 @@
+---
+layout: default
+refactor: true
+---
+
+{% include lang.html %}
+
+{% assign all_pinned = site.projects | where: 'pin', 'true' %}
+{% assign all_normal = site.projects | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+
+{% assign projects = '' | split: '' %}
+
+<!-- Combine all projects (pinned first, then normal) -->
+{% for project in all_pinned %}
+  {% assign projects = projects | push: project %}
+{% endfor %}
+
+{% for project in all_normal %}
+  {% assign projects = projects | push: project %}
+{% endfor %}
+
+<div id="post-list" class="flex-grow-1 px-xl-1">
+  {% for project in projects %}
+    <article class="card-wrapper card">
+      <a href="{{ project.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+        {% assign card_body_col = '12' %}
+
+        {% if project.image %}
+          {% assign src = project.image.path | default: project.image %}
+          {% unless src contains '//' %}
+            {% assign src = project.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+          {% endunless %}
+
+          {% assign alt = project.image.alt | xml_escape | default: 'Project Preview Image' %}
+
+          {% assign lqip = null %}
+
+          {% if project.image.lqip %}
+            {% capture lqip %}lqip="{{ project.image.lqip }}"{% endcapture %}
+          {% endif %}
+
+          <div class="col-md-5">
+            <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+          </div>
+
+          {% assign card_body_col = '7' %}
+        {% endif %}
+
+        <div class="col-md-{{ card_body_col }}">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">{{ project.title }}</h1>
+
+            <div class="card-text content mt-0 mb-3">
+              <p>
+                {% if project.description %}
+                  {{ project.description }}
+                {% else %}
+                  {{ project.excerpt | strip_html | truncate: 200 }}
+                {% endif %}
+              </p>
+            </div>
+
+            <!-- Technologies badges -->
+            {% if project.technologies %}
+              <div class="project-technologies mb-3">
+                {% for tech in project.technologies %}
+                  <span class="badge rounded-pill bg-secondary me-1 mb-1">{{ tech }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end">
+              <div class="me-auto">
+                <!-- project date -->
+                <i class="far fa-calendar fa-fw me-1"></i>
+                {% include datetime.html date=project.date lang=lang %}
+
+                <!-- project status -->
+                {% if project.status %}
+                  <i class="fas fa-tasks fa-fw me-1 ms-3"></i>
+                  <span class="project-status">{{ project.status }}</span>
+                {% endif %}
+
+                <!-- categories -->
+                {% if project.categories.size > 0 %}
+                  <i class="far fa-folder-open fa-fw me-1 ms-3"></i>
+                  <span class="categories">
+                    {% for category in project.categories %}
+                      {{ category }}
+                      {%- unless forloop.last -%},{%- endunless -%}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if project.pin %}
+                <div class="pin ms-1">
+                  <i class="fas fa-thumbtack fa-fw"></i>
+                  <span>{{ site.data.locales[lang].post.pin_prompt | default: 'Pinned' }}</span>
+                </div>
+              {% endif %}
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
+<!-- #project-list -->
+
+<!-- No pagination needed for projects typically, but add if you have many -->
+{% if site.projects.size == 0 %}
+  <div class="text-center mt-5">
+    <p class="text-muted">No projects available yet. Check back soon!</p>
+  </div>
+{% endif %}

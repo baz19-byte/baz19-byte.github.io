@@ -173,6 +173,9 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 defaults:
   - scope:
@@ -195,6 +198,13 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: post
+      categories: [Projects]
+      tags: [cybersecurity, project]
 
 sass:
   style: compressed
